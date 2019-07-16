@@ -23,4 +23,5 @@ public class SecurityMember extends User {
 		roles.forEach(role -> list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role.getRoleName())));
 		return list;
 	}
+	
 }
