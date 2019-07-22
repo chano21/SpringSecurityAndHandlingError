@@ -14,6 +14,17 @@ public class SecurityMember extends User {
 	private static final String ROLE_PREFIX = "ROLE_";
 	private static final long serialVersionUID = 1L;
 	
+	
+	private String sessiondata;
+	
+	public String getSessiondata() {
+		return sessiondata;
+	}
+
+	public void setSessiondata(String sessiondata) {
+		this.sessiondata = sessiondata;
+	}
+
 	public SecurityMember(Member member) {
 		super(member.getUid(), member.getUpw(), makeGrantedAuthority(member.getRoles()));
 	}

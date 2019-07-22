@@ -16,34 +16,19 @@ import com.security.app.tables.Member;
 import com.security.app.tables.MemberRole;
 
 @Controller
-@RequestMapping("/register")
-public class RegisterController {
+@RequestMapping("/admin")
+public class AdminController {
 	
 	@Autowired
 	MemberRepository memberRepository;
 	
-	@GetMapping("")
-	public String view(HttpServletRequest req) {
 	
-		return "signUP";
-	}
-	@PostMapping("")
-	public String create(Member member) {
-		MemberRole role = new MemberRole();
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		member.setUpw(passwordEncoder.encode(member.getUpw()));
-		role.setRoleName("ADMIN222");
-		member.setRoles(Arrays.asList(role));
+	@GetMapping("")
+	public String getuserrole(Member member,HttpServletRequest request) {
+	System.out.println(request.isUserInRole("ADMIN"));
+	
 		
-		
-		
-		memberRepository.save(member);
-		
-		for(Member m:memberRepository.findAll()){
-			System.out.println(m.getUemail());
-			
-		}
-		return "redirect:/login";
+		return "admin";
 	}
 
 }

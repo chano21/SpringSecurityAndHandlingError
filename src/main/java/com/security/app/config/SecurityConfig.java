@@ -37,14 +37,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().formLogin()
 			.loginPage("/login")
 			.loginProcessingUrl("/login")
-			.defaultSuccessUrl("/success")
+			.successHandler(successHandler())
+			//	.defaultSuccessUrl("/success")
 	    	.failureUrl("/login")
 	    	.and()
 	    	.logout();
 	}
 	@Bean
 	public AuthenticationSuccessHandler successHandler() {
-	  return new CustomLoginSuccessHandler("/");//default로 이동할 url
+	  return new CustomLoginSuccessHandler("/success");//default로 이동할 url
 	}
 
 }

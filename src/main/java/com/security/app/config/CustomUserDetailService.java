@@ -25,6 +25,7 @@ public class CustomUserDetailService implements UserDetailsService {
 				Optional.ofNullable(memberRepository.findByUemail(email))
 				.filter(m -> m!= null)
 				.map(m -> new SecurityMember(m)).get();
+	
 	}
 
 }

@@ -1,10 +1,27 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>securitytest</title>
     
 </head>
 <body >
+<div sec:authorize="isAuthenticated()">
+	로그인 한사람들에게 보여짐
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+	어드민한테 보여짐 ADMIN
+</div>
+
+<div sec:authorize="permitAll">
+	모든사람한테 다보여지e
+</div>
+
+
+
+
 	로그인성공
 </body>
 </html>
